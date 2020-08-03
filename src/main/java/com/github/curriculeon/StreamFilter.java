@@ -3,7 +3,9 @@ package com.github.curriculeon;
 import com.github.curriculeon.anthropoid.Person;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
+
 
 /**
  * Created by leon on 5/2/17.
@@ -16,7 +18,13 @@ public class StreamFilter {
      * No arg constructor
      */ //TODO - construct person stream of 100 person objects; startingCharacter is a random capital letter
     public StreamFilter() {
-        this(Stream.empty(), null);
+
+        personStream = Stream.of();
+        Random rand = new Random();
+        String alphaBet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Integer random = (rand.nextInt(25) + 1);
+        Character randomChar = alphaBet.charAt(random);
+        startingCharacter = randomChar.toString();
     }
 
     /**
@@ -24,7 +32,8 @@ public class StreamFilter {
      * @param startingCharacter - character to filter by
      */ //TODO
     public StreamFilter(Person[] people, Character startingCharacter) {
-        this(Stream.empty(), null);
+         personStream = Stream.of(people);
+         this.startingCharacter = startingCharacter.toString();
     }
 
     /**
@@ -32,7 +41,8 @@ public class StreamFilter {
      * @param startingCharacter - character to filter by
      */ //TODO
     public StreamFilter(List<Person> people, Character startingCharacter) {
-        this(Stream.empty(), null);
+         personStream = people.stream();
+        this.startingCharacter = startingCharacter.toString();
     }
 
 
