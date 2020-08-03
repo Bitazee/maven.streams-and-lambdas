@@ -2,8 +2,10 @@ package com.github.curriculeon;
 
 import com.github.curriculeon.anthropoid.Person;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -61,7 +63,8 @@ public class StreamFilter {
      * @return a list of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListMultiLine() {
-        return null;
+        return personStream
+                .collect(Collectors.toList());
     }
 
 
@@ -70,7 +73,7 @@ public class StreamFilter {
      * @return a list of person objects whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListOneLine() {
-        return null;
+        return personStream.collect(Collectors.toList());
     }
 
 
